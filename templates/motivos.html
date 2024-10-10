@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Motivos</h2>
+<a href="{{ url_for('agregar_motivo') }}" class="btn btn-agregar">Agregar Motivo</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Motivo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for motivo in motivos %}
+        <tr>
+            <td>{{ motivo[0] }}</td>
+            <td>{{ motivo[1] }}</td>
+            <td>
+                <a href="{{ url_for('editar_motivo', id=motivo[0]) }}" class="btn btn-editar">Editar</a>
+                <a href="{{ url_for('eliminar_motivo', id=motivo[0]) }}" class="btn btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este motivo?');">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

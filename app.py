@@ -392,7 +392,7 @@ def exportar_equipos_usuario(id):
     equipos = cursor.fetchall()
 
     # Obtener los datos del usuario
-    cursor.execute('SELECT nombre_U FROM usuarios WHERE id = %s', (id,))
+    cursor.execute('SELECT nombre_U, cedula_U FROM usuarios WHERE id = %s', (id,))
     usuario = cursor.fetchone()
 
     conn.close()
@@ -413,6 +413,58 @@ def exportar_equipos_usuario(id):
 def home_redirect():
     return redirect(url_for('home'))
 
+# Ruta para listar categorías
+@app.route('/motivos')
+def motivos():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM motivos')
+    motivos = cursor.fetchall()
+    conn.close()
+    return render_template('motivos.html', motivos=motivos)
+
+# Ruta para agregar motivo
+@app.route('/motivos/agregar', methods=['GET', 'POST'])
+def agregar_motivo():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        nombre_M = request.form['nombre_M']
+        cursor.execute('INSERT INTO motivos (nombre_M) VALUES (%s)', (nombre_M,))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('motivos'))
+
+    return render_template('agregar_motivo.html')
+
+# Ruta para editar motivo
+@app.route('/motivos/editar/<int:id>', methods=['GET', 'POST'])
+def editar_motivo(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        nombre_M = request.form['nombre_M']
+        cursor.execute('UPDATE motivos SET nombre_M = %s WHERE id = %s', (nombre_M, id))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('motivos'))
+
+    cursor.execute('SELECT * FROM motivos WHERE id = %s', (id,))
+    motivo = cursor.fetchone()
+    conn.close()
+    return render_template('editar_motivo.html', motivo=motivo)
+
+# Ruta para eliminar motivos
+@app.route('/motivos/eliminar/<int:id>', methods=['GET'])
+def eliminar_motivo(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM motivos WHERE id = %s', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('motivos'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

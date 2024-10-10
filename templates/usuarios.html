@@ -25,7 +25,9 @@
                 <a href="{{ url_for('editar_usuario', id=usuario[0]) }}" class="btn btn-editar">Editar</a>
                 <a href="{{ url_for('eliminar_usuario', id=usuario[0]) }}" class="btn btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
                 <a href="{{ url_for('ver_equipos_usuario', id=usuario[0]) }}" class="btn btn-info">Ver Equipos</a> <!-- Nuevo botón -->
-                <a href="{{ url_for('exportar_equipos_usuario', id=usuario[0]) }}" class="btn btn-reportes">Reportes</a> <!-- Botón de Reportes -->
+                <a href="{{ url_for('exportar_equipos_usuario', id=usuario[0]) }}" class="btn btn-reportes">Reportes</a>
+                <!-- <a href="{{ url_for('motivos') }}" class="btn btn-motivos">Motivos</a> -->
+                
                 
             </td>
         </tr>

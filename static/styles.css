@@ -78,6 +78,11 @@ table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.tabla_usu td, tr{
+    /* Estilos para la tabla */
+    width: 50%;
+}
+
 /* Estilo de botones */
 .btn {
     padding: 8px 12px;
@@ -117,6 +122,10 @@ table tr:nth-child(even) {
 
 .btn-volver {
     background-color: rgb(16, 196, 142);
+}
+
+.btn-motivos {
+    background-color: rgb(196, 16, 163);
 }
 
 /* Botones hover */

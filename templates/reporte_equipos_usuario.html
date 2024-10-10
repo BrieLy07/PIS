@@ -1,32 +1,77 @@
 <!-- reporte_equipos_usuario.html -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+
     <title>Reporte de Equipos del Usuario</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center; /* Centra el texto en el cuerpo */
+            text-align: center;
+            /* Centra el texto en el cuerpo */
         }
+
         h1 {
             color: #333;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             padding: 8px;
             text-align: left;
             border: 1px solid #ddd;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            /* Ajusta el ancho según sea necesario */
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td div {
+            height: 100px;
+            /* Ajusta la altura según el tamaño de la firma */
+            border: 1px solid gray;
+            /* Agrega un borde para delimitar el área de la firma */
+        }
     </style>
 </head>
+
 <body>
-    <h1>Reporte Individual</h1>
-    <h1>USUARIOS</h1>
-    <h1>Equipos Asignados al Usuario: {{ usuario[0] }}</h1>
+    <p>
+        <br>
+    </p>
+    <p>
+        <br>
+    </p>
+    <h1>Reporte - Equipos de TI </h1>
+    <!-- <h1>IS Solutions</h1>
+    <h2>USUARIOS</h2> -->
+    <table class="tabla_usu">
+        <tr>
+            <td>Motivo del Reporte: </td>
+            <td>______________________________________________________________________________</td>
+        </tr>
+    </table>
+
+    <h2>Equipos asignados al usuario:</h2>
+    <h3>{{ usuario[0] }} con CI. {{ usuario[1] }} y Télefono:___________ </h3>
+    <h4>----- Lista -----</h4>
+
     <table>
         <thead>
             <tr>
@@ -47,5 +92,65 @@
             {% endfor %}
         </tbody>
     </table>
+    <p>
+        <br>
+    </p>
+
+    <table class="tabla_usu">
+        <tr>
+            <td>INFORME TÉCNICO: </td>
+            <td>______________________________________________________________________________</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>Recibe:</th>
+            <th>Aprobado:</th>
+            <th>Usuario:</th>
+        </tr>
+        <tr>
+            <td>
+                <div style="height: 100px;"></div>
+            </td>
+            <td>
+                <div style="height: 100px;"></div>
+            </td>
+            <td>
+                <div style="height: 100px;"></div>
+            </td>
+        </tr>
+    </table>
+
 </body>
+
+<style>
+    p {
+        text-align: justify;
+    }
+</style>
+
+
+
+<p><strong>Responsabilidad del Firmante</strong><br>
+    El usuario asume la responsabilidad de salvaguardar y utilizar adecuadamente los equipos tanto dentro como fuera de
+    las instalaciones de la empresa. Cualquier daño, fallo debido a descuido por parte del usuario o manipulación
+    indebida, así como la pérdida del equipo, será exclusivamente responsabilidad del usuario.<br>
+    El firmante deberá cubrir los gastos proporcionales a las reparaciones o el costo total de los bienes afectados,
+    garantizando que los reemplazos sean de calidad equivalente a los suministrados por Damaju S.A.<br>
+    En caso de robo o pérdida del equipo debido a desastres, se requerirá la presentación de una denuncia o evidencia
+    correspondiente para tomar las medidas pertinentes.<br>
+    El usuario debe garantizar la integridad física de los equipos y notificar de inmediato al departamento de TI
+    cualquier problema o deterioro, a fin de evitar responsabilidades adicionales.<br>
+    Al firmar este documento, el solicitante declara haber leído y aceptado cumplir con los términos y condiciones
+    establecidos para la salida de equipos de cómputo de la empresa Damaju S.A.</p>
+
+<p>
+    <br>
+</p>
+
+
+<!-- <footer class="footer">
+     <h3>IS Solutions Ecuador</h3>
+    </footer> -->
+
 </html>
