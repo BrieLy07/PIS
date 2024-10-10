@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Departamentos</h2>
+<a href="{{ url_for('agregar_departamento') }}" class="btn btn-agregar">Agregar Departamento</a>
+<a href="/reportes/departamentos" class="btn btn-reportes">Exportar a PDF</a> <!-- Botón para exportar a PDF -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for departamento in departamentos %}
+        <tr>
+            <td>{{ departamento[0] }}</td>
+            <td>{{ departamento[1] }}</td>
+            <td>
+                <a href="{{ url_for('editar_departamento', id=departamento[0]) }}" class="btn btn-editar">Editar</a>
+                <a href="{{ url_for('eliminar_departamento', id=departamento[0]) }}" class="btn btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este departamento?');">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

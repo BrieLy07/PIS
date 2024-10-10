@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Editar Departamento</h2>
+    <form method="POST" class="text-center">
+        <div class="form-group">
+            <label for="nombre_D">Nombre del Departamento</label>
+            <input type="text" class="form-control" name="nombre_D" value="{{ departamento[1] }}" required>
+        </div>
+        <button type="submit" class="btn btn-guardar">Guardar cambios</button>
+        <a href="{{ url_for('departamentos') }}" class="btn btn-volver">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

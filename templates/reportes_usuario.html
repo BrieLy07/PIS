@@ -1,0 +1,43 @@
+<!-- reportes_usuario.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportes para el Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center; /* Centra el texto en el cuerpo */
+        }
+        .container {
+            margin: 20px;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .btn {
+            margin-right: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reportes para el Usuario ID: {{ usuario_id }}</h1>
+        <a href="/reportes/usuario/{{ usuario_id }}/tipo1" class="btn">Reporte Tipo 1</a>
+        <a href="/reportes/usuario/{{ usuario_id }}/tipo2" class="btn">Reporte Tipo 2</a>
+        <a href="/reportes/usuario/{{ usuario_id }}/tipo3" class="btn">Reporte Tipo 3</a>
+        <a href="/reportes/usuario/{{ usuario_id }}/tipo4" class="btn">Reporte Tipo 4</a>
+        <a href="/usuarios" class="btn">Volver a Usuarios</a>
+    </div>
+</body>
+</html>

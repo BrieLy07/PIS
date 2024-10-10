@@ -1,0 +1,54 @@
+<!-- reporte_equipos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Equipos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centra el texto en el cuerpo */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reporte General</h1>
+    <h1>EQUIPOS</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Serial</th>
+                <th>Especificaciones</th>
+                <th>Categoría</th> <!-- Columna para la categoría -->
+                <th>Asignado a</th> <!-- Columna para el usuario asignado -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipo in equipos %}
+            <tr>
+                <td>{{ equipo[0] }}</td>
+                <td>{{ equipo[1] }}</td>
+                <td>{{ equipo[2] }}</td>
+                <td>{{ equipo[3] }}</td>
+                <td>{{ equipo[4] }}</td> <!-- Mostrar la categoría -->
+                <td>{{ equipo[5] }}</td> <!-- Mostrar el usuario asignado -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

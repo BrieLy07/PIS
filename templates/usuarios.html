@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Usuarios</h2>
+<a href="{{ url_for('agregar_usuario') }}" class="btn btn-agregar">Agregar Usuario</a>
+<a href="/reportes/usuarios" class="btn btn-reportes">Exportar a PDF</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cédula</th>
+            <th>Departamento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td>{{ usuario[3] }}</td>
+            <td>
+                <a href="{{ url_for('editar_usuario', id=usuario[0]) }}" class="btn btn-editar">Editar</a>
+                <a href="{{ url_for('eliminar_usuario', id=usuario[0]) }}" class="btn btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
+                <a href="{{ url_for('ver_equipos_usuario', id=usuario[0]) }}" class="btn btn-info">Ver Equipos</a> <!-- Nuevo botón -->
+                <a href="{{ url_for('exportar_equipos_usuario', id=usuario[0]) }}" class="btn btn-reportes">Reportes</a> <!-- Botón de Reportes -->
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Equipos a cargo de {{ usuario[0] }}</h2>
+<a href="{{ url_for('usuarios') }}" class="btn btn-volver">Volver a Usuarios</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Modelo</th>
+            <th>Serial</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for equipo in equipos %}
+        <tr>
+            <td>{{ equipo[0] }}</td>
+            <td>{{ equipo[1] }}</td>
+            <td>{{ equipo[2] }}</td>
+            <td>{{ equipo[3] }}</td>
+            <td>{{ equipo[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

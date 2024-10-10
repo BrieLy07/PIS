@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4">
+        <h2 class="text-center mb-4">Agregar Equipo</h2>
+        <form method="POST">
+            <div class="form-group mb-4">
+                <label for="nombre_E" class="form-label">Nombre del Equipo</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <input type="text" class="form-control" name="nombre_E" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="modelo" class="form-label">Modelo</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <input type="text" class="form-control" name="modelo" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="serial" class="form-label">Serial</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <input type="text" class="form-control" name="serial" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="especificaciones" class="form-label">Especificaciones</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <textarea class="form-control" name="especificaciones" rows="3"></textarea>
+            </div>
+            <div class="form-group mb-4">
+                <label for="usuario_id" class="form-label">Usuario Asignado</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <select class="form-control" name="usuario_id" required>
+                    <option value="">Seleccione un usuario</option>
+                    {% for usuario in usuarios %}
+                    <option value="{{ usuario[0] }}">{{ usuario[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group mb-4">
+                <label for="categoria_id" class="form-label">Categoría</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <select class="form-control" name="categoria_id" required>
+                    <option value="">Seleccione una categoría</option>
+                    {% for categoria in categorias %}
+                    <option value="{{ categoria[0] }}">{{ categoria[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-agregar mb-2">Agregar</button>
+                <a href="{{ url_for('equipos') }}" class="btn btn-volver">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

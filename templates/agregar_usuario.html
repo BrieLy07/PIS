@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4">
+        <h2 class="text-center mb-4">Agregar Usuario</h2>
+        <form method="POST">
+            <div class="form-group mb-4">
+                <label for="nombre_U" class="form-label">Nombre del Usuario</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <input type="text" class="form-control" name="nombre_U" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="cedula_U" class="form-label">Cédula</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <input type="text" class="form-control" name="cedula_U" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="departamento_id" class="form-label">Departamento</label>
+                <div class="mb-2"></div> <!-- Espacio en blanco -->
+                <select class="form-control" name="departamento_id" required>
+                    <option value="">Seleccione un departamento</option>
+                    {% for departamento in departamentos %}
+                    <option value="{{ departamento[0] }}">{{ departamento[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-agregar mb-2">Agregar</button>
+                <a href="{{ url_for('usuarios') }}" class="btn btn-volver">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

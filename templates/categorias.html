@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Categorías</h2>
+<a href="{{ url_for('agregar_categoria') }}" class="btn btn-agregar">Agregar Categoría</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria[0] }}</td>
+            <td>{{ categoria[1] }}</td>
+            <td>
+                <a href="{{ url_for('editar_categoria', id=categoria[0]) }}" class="btn btn-editar">Editar</a>
+                <a href="{{ url_for('eliminar_categoria', id=categoria[0]) }}" class="btn btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?');">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
